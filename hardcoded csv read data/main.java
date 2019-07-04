@@ -22,16 +22,16 @@ public class main {
 	static WebDriver driver;
 	static String csvfile="/home/parvathavarthini/Desktop/hive.csv";
 	static String url="https://qa-hive.powerwrap.com.au/users/sign_in";
-	
 
-	
+
+
 	public static void main(String args[]) throws IOException
 	{
 		WebDriverManager.firefoxdriver().setup();
 		WebDriver driver=new FirefoxDriver();
 	    driver.get(url);
 	    driver.manage().window().maximize();
-	
+
 		CSVReader reader=new CSVReader(new FileReader(csvfile));
 		String cell[];
 		while((cell=reader.readNext())!=null)
@@ -42,16 +42,13 @@ public class main {
 				String password=cell[i+1];
 				 driver.findElement(By.xpath("//*[@id=\"user_email\"]")).sendKeys(email);
 				    driver.findElement(By.xpath("//*[@id=\"user_password\"]")).sendKeys(password);
-				    driver.findElement(By.xpath("//*[@id=\"m_login_signin_submit\"]")).click();   
-				
+				    driver.findElement(By.xpath("//*[@id=\"m_login_signin_submit\"]")).click();
+
 			}
 		}
 	}
 
 
 
-	private static Reader newFileReader(String csvfile2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
